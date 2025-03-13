@@ -1,0 +1,87 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:IT_Task2.ViewModel"
+        mc:Ignorable="d"
+        x:Class="IT_Task2.MainWindow"
+        x:DataType="viewModel:MainWindowViewModel"
+        Title="IT_Task1">
+    <Design.DataContext>
+        <viewModel:MainWindowViewModel />
+    </Design.DataContext>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *, *">
+                <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">X1</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Y1</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center">X2</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Center">Y2</TextBlock>
+
+                <NumericUpDown Grid.Row="1" Grid.Column="0" Value="{Binding LineX1}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding LineY1}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding LineX2}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="3" Value="{Binding LineY2}"></NumericUpDown>
+            </Grid>
+            <Button Command="{Binding AddLine}">Добавить линию</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+                <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">X</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Y</TextBlock>
+
+                <NumericUpDown Grid.Row="1" Grid.Column="0" Value="{Binding PointX}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding PointY}"></NumericUpDown>
+            </Grid>
+            <Button Command="{Binding AddPoint}">Добавить точку</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *, *">
+                <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">X</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Y</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center">Rx</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Center">Ry</TextBlock>
+
+                <NumericUpDown Grid.Row="1" Grid.Column="0" Value="{Binding EllipseX}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding EllipseY}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding EllipseRX}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="3" Value="{Binding EllipseRY}"></NumericUpDown>
+            </Grid>
+            <Button Command="{Binding AddEllipse}">Добавить эллипс</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *, *">
+                <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center">X</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center">Y</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center">Ширина</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Center">Высота</TextBlock>
+
+                <NumericUpDown Grid.Row="1" Grid.Column="0" Value="{Binding RectangleX}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding RectangleY}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding RectangleW}"></NumericUpDown>
+                <NumericUpDown Grid.Row="1" Grid.Column="3" Value="{Binding RectangleH}"></NumericUpDown>
+            </Grid>
+            <Button Command="{Binding AddRectangle}">Добавить прямоугольник</Button>
+        </StackPanel>
+        <ItemsControl ItemsSource="{CompiledBinding Figures}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Margin="10" Background="LightGray">
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="{Binding Description}"></TextBlock>
+                            <TextBlock Text=" с центром в точке ("></TextBlock>
+                            <TextBlock Text="{Binding CenterX}"></TextBlock>
+                            <TextBlock Text="; "></TextBlock>
+                            <TextBlock Text="{Binding CenterY}"></TextBlock>
+                            <TextBlock Text=")"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="Ограничен прямоугольником "></TextBlock>
+                            <TextBlock Text="{Binding BoundingRectangle}"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</Window>
