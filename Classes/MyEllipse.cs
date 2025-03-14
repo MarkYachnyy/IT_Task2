@@ -4,16 +4,16 @@ namespace IT_Task2.Classes;
 
 public class MyEllipse : GeometricFigure
 {
-    public int RadiusX { get; set; }
-    public int RadiusY { get; set; }
+    public float RadiusX { get; set; }
+    public float RadiusY { get; set; }
 
-    public MyEllipse(int centerX, int centerY, int radiusX, int radiusY) : base(centerX, centerY)
+    public MyEllipse(float centerX, float centerY, float radiusX, float radiusY) : base(centerX, centerY)
     {
         RadiusX = radiusX;
         RadiusY = radiusY;
     }
 
-    public override (int minX, int minY, int maxX, int maxY) BoundingRectangle
+    public override (float minX, float minY, float maxX, float maxY) BoundingRectangle
     {
         get => (CenterX, CenterY, RadiusX, RadiusY);
     }

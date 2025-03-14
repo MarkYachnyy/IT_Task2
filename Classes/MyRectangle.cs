@@ -2,23 +2,23 @@
 
 public class MyRectangle : GeometricFigure
 {
-    public int Width { get; set; }
-    public int Height { get; set; }
+    public float Width { get; set; }
+    public float Height { get; set; }
 
-    public MyRectangle(int centerX, int centerY, int width, int height) : base(centerX, centerY)
+    public MyRectangle(float centerX, float centerY, float width, float height) : base(centerX, centerY)
     {
         Width = width;
         Height = height;
     }
 
-    public override (int minX, int minY, int maxX, int maxY) BoundingRectangle
+    public override (float minX, float minY, float maxX, float maxY) BoundingRectangle
     {
         get
         {
-            int minX = CenterX - Width / 2;
-            int minY = CenterY - Height / 2;
-            int maxX = CenterX + Width / 2;
-            int maxY = CenterY + Height / 2;
+            float minX = CenterX - Width / 2;
+            float minY = CenterY - Height / 2;
+            float maxX = CenterX + Width / 2;
+            float maxY = CenterY + Height / 2;
             return (minX, minY, maxX, maxY);
         }
     }

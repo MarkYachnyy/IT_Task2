@@ -2,9 +2,9 @@
 
 public class MyPoint : GeometricFigure
 {
-    public MyPoint(int x, int y) : base(x, y) { }
+    public MyPoint(float x, float y) : base(x, y) { }
 
-    public override (int minX, int minY, int maxX, int maxY) BoundingRectangle
+    public override (float minX, float minY, float maxX, float maxY) BoundingRectangle
     {
         get => (CenterX, CenterY, CenterX, CenterY);
     }

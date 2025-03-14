@@ -2,18 +2,18 @@
 
 public abstract class GeometricFigure
 {
-    public int CenterX { get; set; }
-    public int CenterY { get; set; }
+    public float CenterX { get; set; }
+    public float CenterY { get; set; }
 
     protected GeometricFigure(){}
     
-    protected GeometricFigure(int centerX, int centerY)
+    protected GeometricFigure(float centerX, float centerY)
     {
         CenterX = centerX;
         CenterY = centerY;
     }
 
-    public abstract (int minX, int minY, int maxX, int maxY) BoundingRectangle { get; }
+    public abstract (float minX, float minY, float maxX, float maxY) BoundingRectangle { get; }
     public abstract float Area { get; }
     
     public abstract string Description { get; }

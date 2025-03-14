@@ -4,27 +4,33 @@ namespace IT_Task2.Classes;
 
 public class MyLine : GeometricFigure
 {
-    public int StartX { get; set; }
-    public int StartY { get; set; }
-    public int EndX { get; set; }
-    
-    public int EndY { get; set; }
+    public float StartX { get; set; }
+    public float StartY { get; set; }
 
-    public MyLine(int startX, int startY, int endX, int endY) : base((startX + endX) / 2, (startY + endY) / 2) {
-        StartX = startX;
-        StartY = startY;
-        EndX = endX;
-        EndY = endY;
+    public float EndX
+    {
+        get => StartX + 2 * (CenterX - StartX);
     }
 
-    public override (int minX, int minY, int maxX, int maxY) BoundingRectangle
+    public float EndY
+    {
+        get => StartY + 2 * (CenterY - StartY);
+    }
+
+    public MyLine(float startX, float startY, float endX, float endY) : base((startX + endX) / 2, (startY + endY) / 2)
+    {
+        StartX = startX;
+        StartY = startY;
+    }
+
+    public override (float minX, float minY, float maxX, float maxY) BoundingRectangle
     {
         get
         {
-            int minX = Math.Min(CenterX, EndX);
-            int minY = Math.Min(CenterY, EndY);
-            int maxX = Math.Max(CenterX, EndX);
-            int maxY = Math.Max(CenterY, EndY);
+            float minX = Math.Min(StartX, EndX);
+            float minY = Math.Min(StartY, EndY);
+            float maxX = Math.Max(StartX, EndX);
+            float maxY = Math.Max(StartY, EndY);
             return (minX, minY, maxX, maxY);
         }
     }
