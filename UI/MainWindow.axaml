@@ -91,6 +91,8 @@
                                         <StackPanel Orientation="Horizontal" Margin="5">
                                             <TextBlock Text="Ограничен прямоугольником "></TextBlock>
                                             <TextBlock Text="{Binding BoundingRectangle}"></TextBlock>
+                                            <TextBlock Text="; Имеет площадь:"></TextBlock>
+                                            <TextBlock Text="{Binding Area}"></TextBlock>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>

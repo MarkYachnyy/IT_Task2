@@ -25,7 +25,7 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private float _rectangleW;
     [ObservableProperty] private float _rectangleH;
 
-    [ObservableProperty] ObservableCollection<GeometricFigure> _figures = new(){new MyEllipse(0,0, 1, 2), new MyRectangle(10, 10, 20, 40)};
+    [ObservableProperty] ObservableCollection<GeometricFigure> _figures = new();
 
 
     [RelayCommand]

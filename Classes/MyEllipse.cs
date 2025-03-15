@@ -15,7 +15,7 @@ public class MyEllipse : GeometricFigure
 
     public override (float minX, float minY, float maxX, float maxY) BoundingRectangle
     {
-        get => (CenterX, CenterY, RadiusX, RadiusY);
+        get => (CenterX - RadiusX, CenterY-RadiusY, CenterX+RadiusX, CenterY+RadiusY);
     }
 
     public override float Area
